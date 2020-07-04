@@ -28,7 +28,7 @@ const useStyle = makeStyles({
         borderTop: '5px #333 solid',
     },
     confirm: {
-        backgroundColor: 'rgb(90,200,250)',
+        backgroundColor: 'rgb(0,122,225)',
     },
     recover: {
         backgroundColor: 'rgb(59,199,89)',
