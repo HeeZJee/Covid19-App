@@ -13,17 +13,16 @@ const virusSVG = virus
 
 const useStyle = makeStyles({
     grid: {
-
     },
     card: {
         color: '#fff',
-        width: '300px',
-        minWidth: '100%',
-        minHeight: '220px',
+        margin: 'auto 15px',
+        marginTop: '1rem',
+        minHeight: '210px',
         boxSizing: 'border-box',
         backgroundImage: `url(${virusSVG})`,
-        backgroundPosition: '140% 140%',
-        backgroundSize: '180px 190px',
+        backgroundPosition: '110% 190%',
+        backgroundSize: '200px 190px',
         backgroundRepeat: 'no-repeat',
         backgroundBlendMode: 'overlay',
         borderTop: '5px #333 solid',
@@ -45,7 +44,7 @@ const useStyle = makeStyles({
         color: '#fff',
         padding: '10px !important',
         boxSizing: 'border-box',
-        marginTop: '1.2rem !important',
+        marginTop: '0.5rem !important',
     },
 });
 
@@ -80,8 +79,8 @@ function Cards() {
 
 
     return (
-        <Grid container justify="center" spacing={4}>
-            <Grid item>
+        <Grid container justify="space-evenly" >
+            <Grid item xs={12} sm={4} md={4}>
                 <Card className={cx(styles.card, styles.confirm)} >
                     <CardContent >
                         {isLoading
@@ -110,7 +109,7 @@ function Cards() {
                 </Card>
             </Grid>
 
-            <Grid item>
+            <Grid item xs={12} sm={4} md={4}>
                 <Card className={cx(styles.card, styles.recover)}>
                     <CardContent>
                         {isLoading
@@ -140,8 +139,8 @@ function Cards() {
             </Grid>
 
 
-            <Grid item>
-                <Card className={cx(styles.card, styles.death)}>
+            <Grid item xs={12} sm={4} md={4}>
+                <Card className={cx(styles.card, styles.death)} >
                     <CardContent>
                         {isLoading
                             ? <CircularProgress color='inherit' />
