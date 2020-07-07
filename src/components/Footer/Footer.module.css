@@ -1,0 +1,17 @@
+.container {
+  background-color: #252525;
+  color: #efefef;
+  text-align: center;
+  padding: 1rem;
+}
+
+a {
+  background-color: #313131;
+  padding: 7px 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #3a3a3a;
+}

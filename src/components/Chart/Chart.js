@@ -6,6 +6,10 @@ import { makeStyles } from '@material-ui/core';
 
 
 const useStyle = makeStyles({
+    container: {
+        width: '90%',
+        margin: '20px auto',
+    },
     popup:
     {
         textAlign: 'center',
@@ -14,8 +18,12 @@ const useStyle = makeStyles({
         padding: '0.5rem',
         border: 'solid 1px rgb(212,59,48)',
         backgroundColor: 'rgba(212,59,48,0.3)',
-        color: 'rgb(212,59,48)'
+        color: 'rgb(212,59,48)',
+        fontFamily: 'inherit'
     },
+    heading: {
+        textAlign: 'center'
+    }
 })
 
 function Chart() {
@@ -67,13 +75,14 @@ function Chart() {
                 }}
             />
 
-            : <div > {isLoading ? null : <pre className={styles.popup}>Historic data of this country is not available</pre>}</div >
+            : <div > {isLoading ? null : <pre className={styles.popup}> Unfortunately! Historic data of this region is not available.</pre>}</div >
     )
 
 
 
     return (
-        <div>
+        <div className={styles.container}>
+            <h2 className={styles.heading}>Historic Data of 2019-nCov</h2>
             {lineChart}
         </div>
     )

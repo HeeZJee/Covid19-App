@@ -36,7 +36,7 @@ const Selector = () => {
     return (
         <div>
             <FormControl variant="filled" className={styles.container}>
-                <InputLabel shrink htmlFor="filled-country-native-simple">Select Country</InputLabel>
+                <InputLabel shrink htmlFor="filled-country-native-simple">Select Region</InputLabel>
                 <Select
                     native
                     defaultValue={''}

@@ -12,7 +12,8 @@ const virusSVG = virusIMG
 
 
 const useStyle = makeStyles({
-    grid: {
+    container: {
+        margin: '20px auto'
     },
     card: {
         color: '#fff',
@@ -46,6 +47,11 @@ const useStyle = makeStyles({
         boxSizing: 'border-box',
         marginTop: '0.5rem !important',
     },
+    loader: {
+        position: "relative",
+        left: '50%',
+        transform: 'translateX(-50%)',
+    }
 });
 
 
@@ -76,12 +82,12 @@ function Cards() {
 
 
     return (
-        <Grid container justify="space-evenly" >
+        <Grid container justify="space-evenly" className={styles.container}>
             <Grid item xs={12} sm={4} md={4}>
                 <Card className={cx(styles.card, styles.confirm)} >
                     <CardContent >
                         {isLoading
-                            ? <CircularProgress color='inherit' />
+                            ? <CircularProgress color='inherit' className={styles.loader} />
                             : (
                                 <>
                                     <Typography variant={'h4'}>
@@ -110,7 +116,7 @@ function Cards() {
                 <Card className={cx(styles.card, styles.recover)}>
                     <CardContent>
                         {isLoading
-                            ? <CircularProgress color='inherit' />
+                            ? <CircularProgress color='inherit' className={styles.loader} />
                             : (
                                 <>
                                     <Typography variant={'h4'} >
@@ -140,7 +146,7 @@ function Cards() {
                 <Card className={cx(styles.card, styles.death)} >
                     <CardContent>
                         {isLoading
-                            ? <CircularProgress color='inherit' />
+                            ? <CircularProgress color='inherit' className={styles.loader} />
                             : (
                                 <>
                                     <Typography variant={'h4'}>
