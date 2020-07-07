@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { ContextAPI } from './../../store/context';
-import { Select, FormControl, makeStyles } from '@material-ui/core'
+import { FormControl, makeStyles, InputLabel, Select, } from '@material-ui/core'
 
 
 
@@ -28,41 +28,31 @@ const Selector = () => {
 
 
     const updateCountry = (e) => {
-        handleCountry(e.target.value)
-
-    }
-
-    const handleCountry = (country) => {
+        const country = e.target.value
         actionHandler(country)
-
     }
-
 
 
     return (
         <div>
-            <FormControl variant="outlined" className={styles.container}>
+            <FormControl variant="filled" className={styles.container}>
+                <InputLabel shrink htmlFor="filled-country-native-simple">Select Country</InputLabel>
                 <Select
                     native
                     defaultValue={''}
                     onChange={updateCountry}
-                    label="Age"
                     inputProps={{
-                        name: 'age',
-                        id: 'outlined-age-native-simple',
+                        name: 'country',
+                        id: 'filled-country-native-simple',
                     }}
                 >
-                    <option value={''}>Global</option>
+                    <option aria-label="None" value=''>Global</option>
                     {
                         countries.map((country, index) => (
                             <option value={country} key={index}>{country}</option>
                         )
                         )
                     }
-
-
-
-
                 </Select>
             </FormControl>
         </div>
