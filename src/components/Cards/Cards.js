@@ -6,9 +6,9 @@ import ArrowDropUpRoundedIcon from '@material-ui/icons/ArrowDropUpRounded';
 import CountUp from 'react-countup';
 import cx from 'classnames';
 
-import virus from './../../images/virus.svg'
+import virusIMG from './../../images/virus.svg'
 
-const virusSVG = virus
+const virusSVG = virusIMG
 
 
 const useStyle = makeStyles({
@@ -54,26 +54,23 @@ const useStyle = makeStyles({
 function Cards() {
     const styles = useStyle();
 
-    const { fetchSummary } = useContext(ContextAPI)
-    const [state, setstate] = useState({})
+    const { fetchGlobal } = useContext(ContextAPI)
+    const [globalState, setGlobalState] = useState({})
     const [isLoading, setLoading] = useState(false)
 
 
 
     useEffect(
-
         () => {
-            const FetchedAPI = async () => {
+            (async () => {
                 setLoading(true)
-                const { Global } = await fetchSummary()
-                setstate(Global)
+                const data = await fetchGlobal()
+                setGlobalState(data)
                 setLoading(false)
-            }
-            FetchedAPI()
 
-        }, [fetchSummary])
+            })()
+        }, [fetchGlobal])
 
-    console.log(state)
 
 
 
@@ -88,14 +85,14 @@ function Cards() {
                             : (
                                 <>
                                     <Typography variant={'h4'}>
-                                        <CountUp start={0} end={state.TotalConfirmed} duration={2.5} separator=',' />
+                                        <CountUp start={0} end={globalState.cases} duration={2.5} separator=',' />
                                     </Typography>
                                     <Typography variant={'subtitle1'} className={styles.subtitle1}>
                                         CONFIRMED
                                     </Typography>
                                     <Card className={styles.childCard} variant='outlined'>
                                         <Typography variant={'h5'}>
-                                            <CountUp start={0} end={state.NewConfirmed} duration={2.5} separator=',' />
+                                            <CountUp start={0} end={globalState.todayCases} duration={2.5} separator=',' />
                                             <ArrowDropUpRoundedIcon fontSize='large' />
 
                                         </Typography>
@@ -117,14 +114,14 @@ function Cards() {
                             : (
                                 <>
                                     <Typography variant={'h4'} >
-                                        <CountUp start={0} end={state.TotalRecovered} duration={2.5} separator=',' />
+                                        <CountUp start={0} end={globalState.recovered} duration={2.5} separator=',' />
                                     </Typography>
                                     <Typography variant={'subtitle1'} className={styles.subtitle1}>
                                         RECOVERED
                                     </Typography>
                                     <Card className={styles.childCard} variant='outlined'>
                                         <Typography variant={'h5'}>
-                                            <CountUp start={0} end={state.NewRecovered} duration={2.5} separator=',' />
+                                            <CountUp start={0} end={globalState.todayRecovered} duration={2.5} separator=',' />
                                             <ArrowDropUpRoundedIcon fontSize='large' />
 
                                         </Typography>
@@ -147,7 +144,7 @@ function Cards() {
                             : (
                                 <>
                                     <Typography variant={'h4'}>
-                                        <CountUp start={0} end={state.TotalDeaths} duration={2.5} separator=',' />
+                                        <CountUp start={0} end={globalState.deaths} duration={2.5} separator=',' />
 
                                     </Typography>
                                     <Typography variant={'subtitle1'} className={styles.subtitle1} >
@@ -155,7 +152,7 @@ function Cards() {
                                     </Typography>
                                     <Card className={styles.childCard} variant='outlined'>
                                         <Typography variant={'h5'}>
-                                            <CountUp start={0} end={state.NewDeaths} duration={2.5} separator=',' />
+                                            <CountUp start={0} end={globalState.todayDeaths} duration={2.5} separator=',' />
                                             <ArrowDropUpRoundedIcon fontSize='large' />
 
                                         </Typography>
