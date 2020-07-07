@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Application Link
-[http://heezjee-covid19.surge.sh](www.heezjee-covid19.surge.sh)
+[www.heezjee-covid19.surge.sh](http://www.heezjee-covid19.surge.sh)
 
 ## Available Scripts
 
