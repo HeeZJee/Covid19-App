@@ -1,6 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Application Link
-[www.heezjee-covid19.surge.sh](http://www.heezjee-covid19.surge.sh)
+[www.test-my-reads.surge.sh/](http://test-my-reads.surge.sh/)
+
+## Start Project
+To get started developing right away:
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
+
 
 ## Available Scripts
 
