@@ -1,13 +1,14 @@
 pipeline {
      agent any
-     tools {nodejs "nodejs"}
+
      
      stages {
         stage("Build") {
             steps {
-
+                nodejs(nodeJSInstallationName: 'Node 6.x') {
                 sh "npm install"
                 sh "npm start"
+                }
             }
         }          
     }
