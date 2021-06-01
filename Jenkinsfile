@@ -1,14 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:lts-buster-slim' 
+            args '-p 3000:3000' 
+        }
+    }
     stages {
-        stage('Install') { 
-            steps {
-                sh 'npm install'
-                sh ' yarn add @material-ui/core'
-            }
-        }    
         stage('Build') { 
-            steps {
+            steps { 
+                sh 'yarn install'
                 sh 'yarn build'
             }
         }
