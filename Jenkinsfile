@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Install') { 
             steps {
-                sh 'yarn install' 
+                sh 'npm install'
+                sh ' yarn add @material-ui/core'
             }
         }    
         stage('Build') { 
             steps {
                 sh 'yarn build'
-                sh 'ls'
             }
         }
     }
