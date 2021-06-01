@@ -10,6 +10,7 @@ pipeline {
             steps { 
                 sh 'npm install'
                 sh 'yarn install'
+                sh 'yarn add @material-ui/core'
                 sh 'npm run build'
             }
         }
